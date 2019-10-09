@@ -112,3 +112,48 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function buttonCreator(title,date,p1,p2,p3){
+
+  let div = document.createElement('div');
+  let span = document.createElement('span');
+  let h2 = document.createElement('h2');
+  let pDate = document.createElement('p');
+  let paragraphVar1 = document.createElement('p');
+  let paragraphVar2 = document.createElement('p');
+  let paragraphVar3 = document.createElement('p');
+
+  console.log(span);
+  div.appendChild(h2);
+  div.appendChild(pDate);
+  div.appendChild(paragraphVar1);
+  div.appendChild(paragraphVar2);
+  div.appendChild(paragraphVar3);
+  div.appendChild(span);
+
+  div.classList.add('article');
+  pDate.classList.add('date');
+  span.classList.add('expandButton');
+
+  h2.textContent = title;
+  pDate.textContent = date;
+  paragraphVar1.textContent = p1;
+  paragraphVar2.textContent = p2;
+  paragraphVar3.textContent = p3;
+  span.textContent = "Expand";
+  
+  span.addEventListener('click', () => {
+    div.classList.toggle('article-open');
+    });
+
+  return div;
+}
+let masterDiv = document.querySelector('.articles');
+console.log(masterDiv);
+masterDiv.appendChild(buttonCreator(data[0].title,data[0].date,data[0].firstParagraph,data[0].secondParagraph,data[0].thirdParagraph));
+
+masterDiv.appendChild(buttonCreator(data[1].title,data[1].date,data[1].firstParagraph,data[1].secondParagraph,data[1].thirdParagraph));
+
+masterDiv.appendChild(buttonCreator(data[2].title,data[2].date,data[2].firstParagraph,data[2].secondParagraph,data[2].thirdParagraph));
+
+masterDiv.appendChild(buttonCreator(data[3].title,data[3].date,data[3].firstParagraph,data[3].secondParagraph,data[3].thirdParagraph));
